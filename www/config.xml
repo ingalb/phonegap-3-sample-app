@@ -17,7 +17,7 @@
     </author>
 
     <!-- current version of PhoneGap -->
-    <preference name="phonegap-version" value="3.1.0" />
+    <preference name="phonegap-version" value="3.6.3" />
 
     <!--
         Enable individual API permissions here.
