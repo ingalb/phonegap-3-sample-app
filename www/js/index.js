@@ -67,7 +67,7 @@ var app = {
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         initPushwoosh();
-        gaPlugin = window.plugins.gaPlugin;
+        var gaPlugin = window.plugins.gaPlugin;
         gaPlugin.init(successHandler, errorHandler, "UA-2341193-8", 10);
         app.receivedEvent('deviceready');
     },
