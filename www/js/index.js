@@ -35,6 +35,16 @@
             console.warn(JSON.stringify(['failed to register ', status]));
         }
     );
+    
+    function nativePluginResultHandler (result) {
+				//alert('nativePluginResultHandler - '+result);
+				console.log('nativePluginResultHandler: '+result);
+			}
+        
+			function nativePluginErrorHandler (error) {
+				//alert('nativePluginErrorHandler - '+error);
+				console.log('nativePluginErrorHandler: '+error);
+			}
  
     //this function gets called when push notifications has been received
     document.addEventListener('push-notification', function(event) {
@@ -68,7 +78,7 @@ var app = {
     onDeviceReady: function() {
         initPushwoosh();
         var gaPlugin = window.plugins.gaPlugin;
-        gaPlugin.init(successHandler, errorHandler, "UA-2341193-8", 10);
+        gaPlugin.init(nativePluginResultHandler, nativePluginErrorHandler, "UA-2341193-8", 10);
         app.receivedEvent('deviceready');
     },
     // Update DOM on a Received Event
