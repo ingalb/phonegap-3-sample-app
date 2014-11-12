@@ -10,7 +10,7 @@
 		<script type="text/javascript">
 			var gaPlugin;
 			var now = new Date().getTime(),
-                        _60_seconds_from_now = new Date(now + 60*1000);
+                        _60_seconds_from_now = new Date(now + 6*1000);
 
 	
 			function initialize() {
@@ -21,13 +21,6 @@
 				gaPlugin = window.plugins.gaPlugin;        
                                 window.plugin.notification.local.promptForPermission();
 				navigator.notification.confirm('GA_PLUGIN would like your permission to collect usage data. No personal or user identifiable data will be collected.', permissionCallback, 'Attention', 'Allow,Deny');
-				window.plugin.notification.local.add({
-    				id:      1,
-    				title:   'Reminder',
-    				message: 'Dont forget to buy some flowers.',
-    				repeat:  'weekly',
-    				date:    _60_seconds_from_now
-				});
 			}
 		
 			function permissionCallback (button) {
@@ -60,6 +53,15 @@
 			function goingAway() {
 				gaPlugin.exit(nativePluginResultHandler, nativePluginErrorHandler);
 			}
+			function add(){
+				window.plugin.notification.local.add({
+    				id:      1,
+    				title:   'Reminder',
+    				message: 'Dont forget to buy some flowers.',
+    				repeat:  'weekly',
+    				date:    _60_seconds_from_now
+				});
+			}
 			
 		</script>
 
@@ -75,6 +77,7 @@
         </p>
         <p>
         	<a onclick="window.plugin.notification.local.promptForPermission();">Get Grant Access</a>
+        	<a onclick="add();">Add access</a>
         </p>
     	<p class="event received" onclick="window.plugin.notification.local.add({ message: 'Great app!' });">Device is Ready</p>
     </div>
