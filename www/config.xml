@@ -24,6 +24,7 @@
         The "device" permission is required for the 'deviceready' event.
     -->
     <gap:plugin name="org.apache.cordova.device" />
+    <gap:plugin name="de.appplant.cordova.plugin.local-notification" />
 
     <!--
         If you do not want any permissions to be added to your app, add the
